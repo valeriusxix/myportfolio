@@ -1,0 +1,238 @@
+/* ── Section wrapper ── */
+.about-container {
+    min-height: 100vh;
+    padding: 7rem 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+/* Triggered by IntersectionObserver in About.jsx */
+.about--visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ── Header ── */
+.about-header {
+    margin-bottom: 4rem;
+}
+
+.about-eyebrow {
+    display: block;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.3em;
+    color: rgba(57, 255, 106, 0.6);
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+}
+
+.about-header h2 {
+    font-size: 48px;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    font-weight: 400;
+    margin: 0 0 1.5rem 0;
+}
+
+.about-accent {
+    color: rgba(57, 255, 106, 0.72);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+}
+
+/* Animated green divider line — the signature element */
+.about-divider {
+    height: 1px;
+    width: 0%;
+    background: linear-gradient(
+        to right,
+        rgba(57, 255, 106, 0.8),
+        rgba(57, 255, 106, 0.1),
+        transparent
+    );
+    transition: width 1.2s ease 0.3s;  /* delay so it fires after fade-in */
+}
+
+.about--visible .about-divider {
+    width: 40%;
+}
+
+
+/* ── Two-column body ── */
+.about-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+}
+
+
+/* ── Bio column ── */
+.bio-main {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.95);
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 1.85;
+    margin: 0 0 1.25rem 0;
+}
+
+.bio-sub {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.45);
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 1.85;
+    margin: 0 0 1rem 0;
+}
+
+/* Growth Strategy callout */
+.about-specialty {
+    margin-top: 2.5rem;
+    padding: 1.1rem 1.4rem;
+    background: rgba(57, 255, 106, 0.04);
+    border: 1px solid rgba(57, 255, 106, 0.18);
+    border-radius: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    transition: border-color 0.3s, background 0.3s;
+}
+
+.about-specialty:hover {
+    border-color: rgba(57, 255, 106, 0.35);
+    background: rgba(57, 255, 106, 0.07);
+}
+
+.specialty-icon {
+    color: rgba(57, 255, 106, 0.72);
+    font-size: 1.1rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.specialty-title {
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(57, 255, 106, 0.8);
+    margin-bottom: 0.35rem;
+}
+
+.specialty-desc {
+    display: block;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.45);
+    line-height: 1.6;
+}
+
+
+/* ── Skill cards column ── */
+.skills-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.28em;
+    color: rgba(255, 255, 255, 0.25);
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    margin: 0 0 1.25rem 0;
+}
+
+.skill-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.1rem 1.4rem;
+    background: rgba(255, 255, 255, 0.025);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(57, 255, 106, 0.1);
+    border-radius: 12px;
+    margin-bottom: 0.75rem;
+    cursor: default;
+    transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
+}
+
+.skill-card:hover {
+    border-color: rgba(57, 255, 106, 0.35);
+    background: rgba(57, 255, 106, 0.05);
+    transform: translateX(8px);
+}
+
+.skill-left {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+}
+
+/* Small glowing dot instead of a generic icon */
+.skill-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(57, 255, 106, 0.72);
+    box-shadow: 0 0 8px rgba(57, 255, 106, 0.6);
+    flex-shrink: 0;
+}
+
+.skill-role {
+    display: block;
+    color: rgba(255, 255, 255, 0.9);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.2rem;
+}
+
+.skill-tag {
+    display: block;
+    color: rgba(255, 255, 255, 0.3);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+}
+
+/* Duration pill */
+.skill-pill {
+    color: rgba(57, 255, 106, 0.72);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: rgba(57, 255, 106, 0.07);
+    border: 1px solid rgba(57, 255, 106, 0.2);
+    padding: 0.3rem 0.85rem;
+    border-radius: 999px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+    .about-container {
+        padding: 5rem 1.5rem;
+    }
+
+    .about-body {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .about-header h2 {
+        font-size: 36px;
+    }
+
+    .about--visible .about-divider {
+        width: 70%;
+    }
+}

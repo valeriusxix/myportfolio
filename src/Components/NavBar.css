@@ -1,0 +1,253 @@
+/* Fixed positioning*/
+
+.nav-scene {
+    position: fixed;
+    top: 28px;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+
+    /* clicks pass through transparent space around the pill */
+    pointer-events: none;
+}
+
+/* inner wrapper anchors the glow layers to the pill */
+.nav-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    pointer-events: all;
+}
+
+
+/*Glow orbs*/
+
+.nav-glow,
+.nav-reflect {
+    position: absolute;
+    pointer-events: none;
+    border-radius: 50%;
+}
+
+/* left edge */
+.nav-glow--left {
+    width: 220px;
+    height: 110px;
+    left: -90px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: radial-gradient(
+        ellipse at center,
+        rgba(57, 255, 106, 0.72)  0%,
+        rgba(57, 255, 106, 0.20) 40%,
+        transparent               70%
+    );
+    filter: blur(18px);
+    animation: nav-breathe 3.2s ease-in-out infinite;
+}
+
+/* right edge */
+.nav-glow--right {
+    width: 220px;
+    height: 110px;
+    right: -90px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: radial-gradient(
+        ellipse at center,
+        rgba(57, 255, 106, 0.72)  0%,
+        rgba(57, 255, 106, 0.20) 40%,
+        transparent               70%
+    );
+    filter: blur(18px);
+    animation: nav-breathe 3.2s ease-in-out infinite;
+    animation-delay: 0.4s;
+}
+
+/* floor reflection — left */
+.nav-reflect--left {
+    width: 160px;
+    height: 55px;
+    left: -10px;
+    bottom: -52px;
+    background: radial-gradient(
+        ellipse at top,
+        rgba(57, 255, 106, 0.22)  0%,
+        transparent               80%
+    );
+    filter: blur(14px);
+    animation: nav-breathe 3.2s ease-in-out infinite;
+}
+
+/* floor reflection — right */
+.nav-reflect--right {
+    width: 160px;
+    height: 55px;
+    right: -10px;
+    bottom: -52px;
+    background: radial-gradient(
+        ellipse at top,
+        rgba(57, 255, 106, 0.22)  0%,
+        transparent               80%
+    );
+    filter: blur(14px);
+    animation: nav-breathe 3.2s ease-in-out infinite;
+    animation-delay: 0.4s;
+}
+
+@keyframes nav-breathe {
+    0%, 100% { opacity: 0.75; }
+    50%       { opacity: 1;    }
+}
+
+
+/*Gradient border*/
+/* green saturated at both ends → near-invisible in centre  */
+.nav-border {
+    position: relative;
+    z-index: 1;
+    padding: 1px;
+    border-radius: 60px;
+    background: linear-gradient(
+        90deg,
+        rgba(57, 255, 106, 0.60)   0%,
+        rgba(57, 255, 106, 0.14)  16%,
+        rgba(255, 255, 255, 0.04) 38%,
+        rgba(255, 255, 255, 0.04) 62%,
+        rgba(57, 255, 106, 0.14)  84%,
+        rgba(57, 255, 106, 0.60) 100%
+    );
+}
+
+
+/*Glassmorphism pill*/
+
+.navbar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 8px 20px 8px 12px;
+    border-radius: 59px;
+    overflow: hidden;
+    gap: 0;
+
+    background: rgba(13, 13, 13, 0.74);
+    backdrop-filter: blur(32px) saturate(160%);
+    -webkit-backdrop-filter: blur(32px) saturate(160%);
+}
+
+/* specular highlight — thin bright line at top edge */
+.navbar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 12%;
+    width: 76%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.22),
+        transparent
+    );
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+
+/*Logo*/
+
+.logo {
+    display: flex;
+    align-items: center;
+    padding: 0 4px 0 6px;
+    flex-shrink: 0;
+}
+
+.logo img {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    mix-blend-mode: screen;
+    transition: opacity 0.22s ease;
+}
+
+.logo img:hover {
+    opacity: 0.85;
+}
+
+
+/*Divider*/
+.nav-divider {
+    width: 1px;
+    height: 22px;
+    background: rgba(255, 255, 255, 0.10);
+    flex-shrink: 0;
+    margin: 0 14px;
+}
+
+
+/*Nav links wrapper*/
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+
+/*Nav items*/
+
+.nav-item {
+    position: relative;
+    padding: 8px 18px;
+    border-radius: 50px;
+    border: 1px solid transparent;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.40);
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 11.5px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+
+    transition: color 0.22s ease, background 0.22s ease;
+    cursor: pointer;
+}
+
+.nav-item:hover {
+    color: rgba(255, 255, 255, 0.82);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* active state */
+
+.nav-item--active {
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    background: rgba(57, 255, 106, 0.07);
+    border-color: rgba(57, 255, 106, 0.22);
+}
+
+/* green glowing indicator bar at top of active item */
+.nav-item--active::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 2px;
+    border-radius: 0 0 4px 4px;
+    background: rgba(57, 255, 106, 0.85);
+    box-shadow:
+        0 0  8px rgba(57, 255, 106, 0.70),
+        0 0 18px rgba(57, 255, 106, 0.35);
+}

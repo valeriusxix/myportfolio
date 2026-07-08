@@ -1,0 +1,125 @@
+/*LAYOUT — two-column flex, penguin bleeds out*/
+.home-container {
+  position: relative;          /* anchor for absolute penguin */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh;
+  padding: 0 6rem;
+  overflow: visible;           /* ← lets the penguin bleed past the section edge */
+}
+
+/*LEFT COLUMN — your text block*/
+.home-text {
+  flex: 0 0 50%;
+  z-index: 2;          
+}
+
+.home-container h1 {
+  font-size: 40px;
+  font-family: 'Times New Roman', Times, serif;
+  color: white;
+}
+
+.home-container h1 span {
+  font-weight: 900;
+  font-size: 60px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgba(57, 255, 106, 0.72);
+}
+
+.home-container h3 {
+  color: white;
+  margin-top: 20px;
+  font-size: 28px;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-cta-btn {
+  padding: 14px 36px;
+  background: white;
+  color: rgba(57, 255, 106, 0.8);
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ROLE CHANGER */
+.text-changer {
+  height: 50px;
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  color: white;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 500;
+  box-sizing: content-box;
+}
+
+.text-changer h3 {
+  margin-top: -2px;
+  font-size: 40px;
+}
+
+.role-changer {
+  overflow: hidden;
+  position: relative;
+}
+
+.role {
+  display: block;
+  height: 100%;
+  font-weight: 900;
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-left: 6px;
+  color: rgba(57, 255, 106, 0.72);
+  animation: role-change 4s infinite;
+}
+
+@keyframes role-change {
+ 0% { transform: translateY(0);}
+  15%  { transform: translateY(0); }
+  18%  { transform: translateY(-102%); }
+  20%  { transform: translateY(-100%); }
+  35%  { transform: translateY(-100%); }
+  38%  { transform: translateY(-202%); }
+  40%  { transform: translateY(-200%); }
+  55%  { transform: translateY(-200%); }
+  58%  { transform: translateY(-302%); }
+  60%  { transform: translateY(-300%); }
+  75%  { transform: translateY(-300%); }
+  78%  { transform: translateY(-402%); }
+  80%  { transform: translateY(-400%); }
+  98%  { transform: translateY(-400%); }
+  100% { transform: translateY(-400%); }
+}
+
+
+.home-penguin-wrap {
+  position: absolute;
+  right: 4rem;
+  bottom: 0;
+  height: 115%;              
+  z-index: 1;
+}
+
+.home-penguin-img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+
+  filter: drop-shadow(0 0 50px rgba(57, 255, 106, 0.35))
+          drop-shadow(0 0 120px rgba(57, 255, 106, 0.15));
+  animation: penguin-float 5s ease-in-out infinite;
+}
+
+@keyframes penguin-float {
+  0%, 100% { transform: translateY(0);     }
+  50%       { transform: translateY(-18px); }
+}
+
