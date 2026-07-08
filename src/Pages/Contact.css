@@ -58,6 +58,55 @@
     font-size: 40px;
 }
 
+@media (max-width: 768px) {
+    .contact-container {
+        height: auto;
+        padding: 1rem 0 1.25rem;
+    }
+
+    .contact-container h2 {
+        font-size: 28px;
+        margin-top: 16px;
+    }
+
+    .contact-container p {
+        font-size: 16px;
+        padding: 0 1rem;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        justify-content: center;
+        gap: 16px;
+        margin: 1rem 0 0;
+        padding: 0 1rem;
+    }
+
+    .val-socials,
+    .contact-form {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        height: auto;
+    }
+
+    .val-socials {
+        gap: 12px;
+        padding: 0;
+    }
+
+    .social-btn {
+        width: 100%;
+        height: auto;
+        min-height: 56px;
+        padding: 0.85rem 1rem;
+    }
+
+    .contact-form {
+        padding: 1rem;
+        gap: 16px;
+    }
+}
 
 .contact-container p {
     margin-top: 7px;

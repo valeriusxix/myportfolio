@@ -251,3 +251,46 @@
         0 0  8px rgba(57, 255, 106, 0.70),
         0 0 18px rgba(57, 255, 106, 0.35);
 }
+
+@media (max-width: 768px) {
+    .nav-scene {
+        top: 12px;
+        left: 12px;
+        right: 12px;
+    }
+
+    .nav-wrapper {
+        width: 100%;
+    }
+
+    .navbar {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 10px 12px;
+        gap: 8px;
+    }
+
+    .nav-divider {
+        display: none;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px;
+    }
+
+    .nav-item {
+        padding: 7px 10px;
+        font-size: 10px;
+        letter-spacing: 0.08em;
+    }
+
+    .nav-glow--left,
+    .nav-glow--right,
+    .nav-reflect--left,
+    .nav-reflect--right {
+        display: none;
+    }
+}

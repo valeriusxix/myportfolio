@@ -1,0 +1,24 @@
+.footer {
+  margin-top: 100px;
+  text-align: center;
+  justify-content: center;
+  padding: 30px 1rem 24px;
+  border-top: 1px solid rgba(57, 255, 106, 0.35);
+  color: white;
+}
+
+.footer h3 {
+  font-size: 12px;
+  font-weight: 800;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    margin-top: 20px;
+    padding-top: 20px;
+  }
+
+  .footer h3 {
+    font-size: 16px;
+  }
+}

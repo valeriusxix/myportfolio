@@ -141,6 +141,44 @@
     font-weight: 400;
 }
 
+@media (max-width: 768px) {
+    .PoW-container {
+        padding: 5rem 1.25rem;
+        min-height: auto;
+    }
 
+    .PoW-header {
+        margin-bottom: 2rem;
+    }
 
+    .PoW-eyebrow {
+        font-size: 22px;
+        letter-spacing: 2.8px;
+    }
 
+    .PoW-section h2 {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+
+    .PoW-grid {
+        grid-template-columns: 1fr;
+        padding: 0.5rem 0 0;
+        gap: 1rem;
+    }
+
+    .project-role-card {
+        min-height: auto;
+        max-height: none;
+        padding: 1rem;
+    }
+
+    .project-role-card img {
+        height: auto;
+        max-height: 180px;
+    }
+
+    .project-role-card p {
+        font-size: 16px;
+    }
+}

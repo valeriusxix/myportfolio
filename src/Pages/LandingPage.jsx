@@ -4,6 +4,7 @@ import Home from './Home';
 import About from './About';
 import PoW from './PoW';
 import Contact from './Contact';
+import Footer from '../Components/footer';
 
 function LandingPage() {
   return (
@@ -14,6 +15,7 @@ function LandingPage() {
       {/* Uncomment as you build each section: */}
       <section id="PoW"><PoW /></section>
       <section id="contact"><Contact /></section>
+      <Footer />
     </>
   );
 }

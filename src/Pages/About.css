@@ -220,16 +220,41 @@
 /* ── Mobile ── */
 @media (max-width: 768px) {
     .about-container {
-        padding: 5rem 1.5rem;
+        padding: 5rem 1.25rem;
+        min-height: auto;
     }
 
     .about-body {
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 2rem;
+    }
+
+    .about-header {
+        margin-bottom: 2rem;
     }
 
     .about-header h2 {
-        font-size: 36px;
+        font-size: 30px;
+    }
+
+    .about-eyebrow {
+        font-size: 13px;
+        letter-spacing: 0.22em;
+    }
+
+    .about-specialty {
+        flex-direction: column;
+        gap: 0.7rem;
+    }
+
+    .skill-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.7rem;
+    }
+
+    .skill-pill {
+        align-self: flex-start;
     }
 
     .about--visible .about-divider {
