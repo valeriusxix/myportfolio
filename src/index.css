@@ -12,6 +12,12 @@ body {
   overflow-x: hidden;
 }
 
+@media (max-width: 768px) {
+  section[id] {
+    padding-top: 5.5rem;
+  }
+}
+
 img {
   max-width: 100%;
   display: block;

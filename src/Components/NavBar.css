@@ -254,9 +254,9 @@
 
 @media (max-width: 768px) {
     .nav-scene {
-        top: 12px;
-        left: 12px;
-        right: 12px;
+        top: 8px;
+        left: 8px;
+        right: 8px;
     }
 
     .nav-wrapper {
@@ -267,7 +267,7 @@
         width: 100%;
         flex-wrap: wrap;
         justify-content: center;
-        padding: 10px 12px;
+        padding: 8px 10px;
         gap: 8px;
     }
 

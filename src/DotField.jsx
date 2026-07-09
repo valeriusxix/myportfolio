@@ -98,10 +98,11 @@ const DotField = memo(({
       dotsRef.current = dots;
     }
 
-    function onMouseMove(e) {
+    function onPointerMove(e) {
       const s = sizeRef.current;
-      mouseRef.current.x = e.pageX - s.offsetX;
-      mouseRef.current.y = e.pageY - s.offsetY;
+      const point = e.touches?.[0] ?? e;
+      mouseRef.current.x = point.pageX - s.offsetX;
+      mouseRef.current.y = point.pageY - s.offsetY;
     }
 
     function updateMouseSpeed() {
@@ -194,6 +195,9 @@ const DotField = memo(({
         if (p.waveAmplitude > 0) {
           drawY += Math.sin(d.ax * 0.03 + t) * p.waveAmplitude;
           drawX += Math.cos(d.ay * 0.03 + t * 0.7) * p.waveAmplitude * 0.5;
+        } else if (eng < 0.01) {
+          drawX += Math.sin(frameCount * 0.018 + d.ax * 0.006) * 0.22;
+          drawY += Math.cos(frameCount * 0.016 + d.ay * 0.006) * 0.22;
         }
 
         if (p.sparkle) {
@@ -218,7 +222,9 @@ const DotField = memo(({
 
     doResize();
     window.addEventListener('resize', resize);
-    window.addEventListener('mousemove', onMouseMove, { passive: true });
+    window.addEventListener('mousemove', onPointerMove, { passive: true });
+    window.addEventListener('touchmove', onPointerMove, { passive: true });
+    window.addEventListener('touchstart', onPointerMove, { passive: true });
     rafRef.current = requestAnimationFrame(tick);
 
     rebuildRef.current = () => {
@@ -231,7 +237,9 @@ const DotField = memo(({
       clearInterval(speedInterval);
       clearTimeout(resizeTimer);
       window.removeEventListener('resize', resize);
-      window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('mousemove', onPointerMove);
+      window.removeEventListener('touchmove', onPointerMove);
+      window.removeEventListener('touchstart', onPointerMove);
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
